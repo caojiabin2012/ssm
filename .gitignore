@@ -16,3 +16,4 @@ mbg.xml
 # Log Files
 *.log
 .springBeans
+/src/main/resources/mybatis/druid.properties

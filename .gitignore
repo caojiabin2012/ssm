@@ -1,0 +1,18 @@
+/target/
+*/target/
+# Compiled class file
+*.class
+
+# idea
+/.idea/
+*.iml
+
+# eclipse
+/.settings/
+/.externalToolBuilders/
+.classpath
+.project
+mbg.xml
+# Log Files
+*.log
+.springBeans

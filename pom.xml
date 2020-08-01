@@ -70,6 +70,11 @@
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
+      <artifactId>spring-orm</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
       <version>${spring.version}</version>
     </dependency>
@@ -98,7 +103,7 @@
       <artifactId>spring-test</artifactId>
       <version>${spring.version}</version>
     </dependency>
-    
+
     <!-- 实现slf4j接口并整合 -->
     <dependency>
       <groupId>org.slf4j</groupId>
@@ -142,17 +147,17 @@
     </dependency>
 
     <!-- mybatis -->
-    <dependency>
-      <groupId>org.mybatis</groupId>
-      <artifactId>mybatis</artifactId>
-      <version>${mybatis.version}</version>
-    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>org.mybatis</groupId>-->
+<!--      <artifactId>mybatis</artifactId>-->
+<!--      <version>${mybatis.version}</version>-->
+<!--    </dependency>-->
     <!-- mybatis/spring整合包 -->
-    <dependency>
-      <groupId>org.mybatis</groupId>
-      <artifactId>mybatis-spring</artifactId>
-      <version>${mybatis-spring.version}</version>
-    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>org.mybatis</groupId>-->
+<!--      <artifactId>mybatis-spring</artifactId>-->
+<!--      <version>${mybatis-spring.version}</version>-->
+<!--    </dependency>-->
 
     <!-- druid 连接池 -->
     <dependency>
@@ -189,7 +194,7 @@
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-validator</artifactId>
-      <version>6.1.5.Final</version>
+      <version>6.0.20.Final</version>
     </dependency>
 
     <!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp -->
@@ -204,6 +209,19 @@
       <groupId>com.alibaba</groupId>
       <artifactId>easyexcel</artifactId>
       <version>${easyexcel.version}</version>
+    </dependency>
+
+    <!-- mp 依赖 -->
+    <dependency>
+      <groupId>com.baomidou</groupId>
+      <artifactId>mybatis-plus</artifactId>
+      <version>3.3.2</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.12</version>
     </dependency>
 
   </dependencies>

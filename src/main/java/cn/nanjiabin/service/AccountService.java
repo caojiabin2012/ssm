@@ -7,17 +7,22 @@ import java.util.List;
 public interface AccountService {
 
     /**
-     * 查询所有
+     * 查询列表
      * @return
      */
-    List<Account> findAll();
-
+    List<Account> getList(Account account);
 
     /**
      * 添加账户
      * @param account
      */
     int addAccount(Account account);
+
+    /**
+     * 批量添加账户
+     * @param accounts
+     */
+    int addBatchAccount(List<Account> accounts);
 
     /**
      * 修改

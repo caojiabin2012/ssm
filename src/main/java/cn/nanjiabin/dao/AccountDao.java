@@ -14,7 +14,7 @@ public interface AccountDao {
      * @return
      */
 //    @Select("SELECT * FROM account")
-    List<Account> findAll();
+    List<Account> getList(Account account);
 
 
     /**
@@ -23,6 +23,13 @@ public interface AccountDao {
      */
 //    @Select("INSERT INTO account (name,balance) VALUES (#{name},#{balance})")
     int addAccount(Account account);
+
+
+    /**
+     * 批量添加账户
+     * @param accounts
+     */
+    int addBatchAccount(List<Account> accounts);
 
     /**
      * 修改

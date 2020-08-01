@@ -26,7 +26,8 @@ public class AccountController {
     @RequestMapping("/findAll")
     public String findAll(Model model){
         System.out.println("这是控制层——查询所有账户的方法");
-        List<Account> list = AccountService.findAll();
+        Account account = new Account();
+        List<Account> list = AccountService.getList(account);
         model.addAttribute("accounts",list);
         return "list_account";
     }

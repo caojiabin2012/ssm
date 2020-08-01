@@ -15,9 +15,9 @@ public class AccountServiceImpl implements AccountService {
     private AccountDao accountDao;
 
     @Override
-    public List<Account> findAll() {
+    public List<Account> getList(Account account) {
         System.out.println("这是业务层——查询所有账户方法");
-        return accountDao.findAll();
+        return accountDao.getList(account);
     }
 
     @Override
@@ -25,6 +25,12 @@ public class AccountServiceImpl implements AccountService {
 
         System.out.println("这是业务层——添加账户方法");
         return accountDao.addAccount(account);
+    }
+
+    @Override
+    public int addBatchAccount(List<Account> accounts) {
+        System.out.println("这是业务层——添加账户方法");
+        return accountDao.addBatchAccount(accounts);
     }
 
     @Override

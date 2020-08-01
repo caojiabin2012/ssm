@@ -4,17 +4,31 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.nanjiabin.dao.AccountDao">
 
-	<!-- 查询全部 -->
-    <select id="findAll" resultType="Account">
-		SELECT
-			*
-		FROM
-			account
+	<!-- 查询 -->
+    <select id="getList" resultType="Account">
+		SELECT *
+		FROM account
+		WHERE 1=1
+		<if test="id != null">AND id=#{id}</if>
+		<if test="name != null">AND name=#{name}</if>
+		<if test="balance != null">AND balance=#{balance}</if>
 	</select>
 
 	<!-- 增加单条 -->
 	<insert id="addAccount" parameterType="Account" useGeneratedKeys="true" keyProperty="id"  keyColumn="id">
-		insert into account(name, balance) values(#{name}, #{balance})
+		insert into account(name, balance)
+		values(#{name}, #{balance})
+	</insert>
+
+	<!-- 批量添加 -->
+	<insert id="addBatchAccount" parameterType="list" useGeneratedKeys="true" keyProperty="id"  keyColumn="id">
+		insert into account(name, balance)
+		values
+		<foreach collection ="list" item="account" index= "index" separator =",">
+			(
+				#{account.name}, #{account.balance}
+			)
+		</foreach >
 	</insert>
 
 	<!-- 删除 -->

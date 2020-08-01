@@ -21,9 +21,21 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public void addAccount(Account account) {
+    public int addAccount(Account account) {
 
         System.out.println("这是业务层——添加账户方法");
-        accountDao.addAccount(account);
+        return accountDao.addAccount(account);
+    }
+
+    @Override
+    public int editAccount(Account account) {
+        System.out.println("这是业务层——editAccount账户方法");
+        return accountDao.editAccount(account);
+    }
+
+    @Override
+    public int deleteAccount(Account account) {
+        System.out.println("这是业务层——deleteAccount账户方法");
+        return accountDao.deleteAccount(account);
     }
 }

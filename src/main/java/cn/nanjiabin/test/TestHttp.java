@@ -7,12 +7,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 import cn.nanjiabin.common.utils.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 public class TestHttp {
-
-
-
+    private static final Logger logger = LoggerFactory.getLogger(TestHttp.class);
 
 
     @Test
@@ -46,6 +46,10 @@ public class TestHttp {
         url  = "https://dzsd.klb.cn/dzsd/pay/gateway";
         String orderJson = httpClient.postJson(url, json);
         System.out.println(orderJson);
+
+        logger.info("请求地址 : info");
+        logger.debug("请求地址 : debug");
+        logger.warn("warn");
 
 
     }

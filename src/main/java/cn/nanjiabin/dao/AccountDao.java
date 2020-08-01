@@ -21,6 +21,20 @@ public interface AccountDao {
      * 添加账户
      * @param account
      */
-    @Select("INSERT INTO account (name,balance) VALUES (#{name},#{balance})")
-    void addAccount(Account account);
+//    @Select("INSERT INTO account (name,balance) VALUES (#{name},#{balance})")
+    int addAccount(Account account);
+
+    /**
+     * 修改
+     * @param account
+     * @return
+     */
+    int editAccount(Account account);
+
+    /**
+     * 删除
+     * @param account
+     * @return
+     */
+    int deleteAccount(Account account);
 }

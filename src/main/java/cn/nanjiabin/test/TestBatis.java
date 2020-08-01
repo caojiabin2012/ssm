@@ -1,66 +1,84 @@
 package cn.nanjiabin.test;
 
 
-import cn.nanjiabin.dao.AccountDao;
 import cn.nanjiabin.entity.Account;
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.junit.After;
+import cn.nanjiabin.service.AccountService;
 import org.junit.Before;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 
 public class TestBatis {
 
-    private InputStream inputStream;
-    private SqlSession sqlSession;
-    private AccountDao accountDao;
+    private static final Logger logger = LoggerFactory.getLogger(TestBatis.class);
+
+    private ApplicationContext applicationContext;
+    private AccountService accountService;
+
     /**
-       单独测试Mybatis时所用，整合后 SqlMapConfig.xml文件就不再使用了
-       配置到 applicationContext.xml
-    */
+     * 初始化
+     * @throws Exception
+     */
     @Before
-    public void init() throws IOException {
-        //加载配置文件
-        inputStream = Resources.getResourceAsStream("SqlMapConfig.xml");
-        // 创建 SqlSessionFactory 对象
-        SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(inputStream);
-        //创建 SqlSession 对象
-        sqlSession = factory.openSession();
-        accountDao = sqlSession.getMapper(AccountDao.class);
+    public void init() throws Exception {
+        applicationContext  = new ClassPathXmlApplicationContext("classpath:spring/spring-*.xml");
+        accountService      = (AccountService) applicationContext.getBean("AccountService");
     }
 
-    @After
-    public void destroy() throws IOException {
-        //提交事务
-        sqlSession.commit();
-        sqlSession.close();
-        inputStream.close();
-    }
-
+    /**
+     * 查询-全部数据
+     */
     @Test
     public void testFindAll() {
-        List<Account> accounts = accountDao.findAll();
+
+        List<Account> accounts = accountService.findAll();
         for (Account account : accounts) {
-            System.out.println("------------");
-            System.out.println(account.getName());
+            logger.info("姓名={}", account.getName());
         }
     }
 
+    /**
+     * 增加-单条数据
+     */
     @Test
     public void testAddAccount() {
         Account account = new Account();
-        account.setName("test");
+        account.setName("test11");
         account.setBalance(800d);
 
-        accountDao.addAccount(account);
+        int count = accountService.addAccount(account);
+
+        logger.info("增加行数={}", count);
+        logger.info("account id={}", account.getId());
+
     }
 
+    /**
+     * 修改-by id
+     */
+    @Test
+    public void testEditAccount() {
+        Account account = new Account();
+        account.setId(14);
+        account.setName("14name");
+        account.setBalance(900d);
 
+        int count = accountService.editAccount(account);
+        logger.info("受影响行数={}", count);
+    }
 
+    /**
+     * 删除-by id
+     */
+    @Test
+    public void testDeleteAccount() {
+        Account account = new Account();
+        account.setId(16);
+        int count = accountService.deleteAccount(account);
+        logger.info("删除行数={}", count);
+    }
 }

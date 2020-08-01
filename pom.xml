@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>cn.nanjiabin</groupId>
-  <artifactId>ssm_01_demo</artifactId>
+  <artifactId>ssm</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
   <properties>
@@ -36,6 +36,9 @@
 
     <!-- okhttp -->
     <okhttp.version>4.8.0</okhttp.version>
+
+    <!--easyexcel-->
+    <easyexcel.version>2.2.6</easyexcel.version>
   </properties>
 
   <dependencies>
@@ -99,10 +102,30 @@
 
     <!-- 实现slf4j接口并整合 -->
     <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.7.30</version>
+    </dependency>
+    <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
       <version>1.2.3</version>
     </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-core</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+    <dependency>
+      <groupId>org.logback-extensions</groupId>
+      <artifactId>logback-ext-spring</artifactId>
+      <version>0.1.5</version>
+    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>ch.qos.logback</groupId>-->
+<!--      <artifactId>logback-classic</artifactId>-->
+<!--      <version>1.2.3</version>-->
+<!--    </dependency>-->
 
     <!-- JSON -->
     <dependency>
@@ -182,11 +205,18 @@
       <version>${okhttp.version}</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/com.alibaba/easyexcel -->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>easyexcel</artifactId>
+      <version>${easyexcel.version}</version>
+    </dependency>
+
   </dependencies>
 
 
   <build>
-    <finalName>ssm_02_demo</finalName>
+    <finalName>ssm</finalName>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

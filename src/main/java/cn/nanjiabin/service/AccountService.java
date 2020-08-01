@@ -17,5 +17,19 @@ public interface AccountService {
      * 添加账户
      * @param account
      */
-    void addAccount(Account account);
+    int addAccount(Account account);
+
+    /**
+     * 修改
+     * @param account
+     * @return
+     */
+    int editAccount(Account account);
+
+    /**
+     * 删除
+     * @param account
+     * @return
+     */
+    int deleteAccount(Account account);
 }

@@ -3,8 +3,8 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.nanjiabin.dao.AccountDao">
-    <!-- 目的：为dao接口方法提供sql语句配置 -->
 
+	<!-- 查询全部 -->
     <select id="findAll" resultType="Account">
 		SELECT
 			*
@@ -12,5 +12,23 @@
 			account
 	</select>
 
+	<!-- 增加单条 -->
+	<insert id="addAccount" parameterType="Account" useGeneratedKeys="true" keyProperty="id"  keyColumn="id">
+		insert into account(name, balance) values(#{name}, #{balance})
+	</insert>
 
+	<!-- 删除 -->
+	<delete id="deleteAccount" parameterType="Account" flushCache="true" statementType="PREPARED" timeout="20">
+		delete from account where id=#{id}
+	</delete>
+
+	<!-- 修改 -->
+	<update id="editAccount" parameterType="Account">
+		update account
+		<set>
+			<if test="name != null">name=#{name},</if>
+			<if test="balance != null">balance=#{balance}</if>
+		</set>
+		where id=#{id}
+	</update>
 </mapper>

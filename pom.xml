@@ -30,6 +30,7 @@
     <junit.version>4.12</junit.version>
 
     <!-- logback -->
+    <slf4j-api.version>1.7.30</slf4j-api.version>
     <logback-classic.version>1.2.3</logback-classic.version>
     <logback-core.version>1.2.3</logback-core.version>
     <logback-ext-spring.version>0.1.5</logback-ext-spring.version>
@@ -97,35 +98,28 @@
       <artifactId>spring-test</artifactId>
       <version>${spring.version}</version>
     </dependency>
-
-
-
+    
     <!-- 实现slf4j接口并整合 -->
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
-      <version>1.7.30</version>
+      <version>${slf4j-api.version}</version>
     </dependency>
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
-      <version>1.2.3</version>
+      <version>${logback-classic.version}</version>
     </dependency>
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-core</artifactId>
-      <version>1.2.3</version>
+      <version>${logback-core.version}</version>
     </dependency>
     <dependency>
       <groupId>org.logback-extensions</groupId>
       <artifactId>logback-ext-spring</artifactId>
-      <version>0.1.5</version>
+      <version>${logback-ext-spring.version}</version>
     </dependency>
-<!--    <dependency>-->
-<!--      <groupId>ch.qos.logback</groupId>-->
-<!--      <artifactId>logback-classic</artifactId>-->
-<!--      <version>1.2.3</version>-->
-<!--    </dependency>-->
 
     <!-- JSON -->
     <dependency>
@@ -195,7 +189,7 @@
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-validator</artifactId>
-      <version>5.2.4.Final</version>
+      <version>6.1.5.Final</version>
     </dependency>
 
     <!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp -->

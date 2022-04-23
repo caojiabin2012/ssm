@@ -14,7 +14,7 @@
     <javaee-api.version>7.0</javaee-api.version>
 
     <!-- spring -->
-    <spring.version>5.2.8.RELEASE</spring.version>
+    <spring.version>5.3.19</spring.version>
 
     <!-- mybatis -->
     <mybatis.version>3.5.5</mybatis.version>
